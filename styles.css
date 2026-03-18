@@ -1,0 +1,463 @@
+:root {
+  --bg: #f5f1ea;
+  --surface: rgba(255, 252, 247, 0.88);
+  --surface-strong: #fffdf8;
+  --text: #201c18;
+  --muted: #6d6258;
+  --line: rgba(32, 28, 24, 0.12);
+  --line-strong: rgba(32, 28, 24, 0.22);
+  --accent: #7c5c43;
+  --accent-soft: rgba(124, 92, 67, 0.12);
+  --shadow: 0 24px 60px rgba(32, 28, 24, 0.08);
+  --radius-lg: 32px;
+  --radius-md: 20px;
+  --radius-sm: 999px;
+  --max-width: 1180px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Aptos, "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(124, 92, 67, 0.08), transparent 32%),
+    linear-gradient(180deg, #f7f4ee 0%, var(--bg) 100%);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.page-shell {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: 0 auto;
+  padding: 1.25rem 0 4rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0.75rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(247, 244, 238, 0.82);
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--text);
+}
+
+.section {
+  margin-bottom: 1.5rem;
+  padding: 2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
+  gap: 1.5rem;
+  min-height: 75vh;
+  align-items: end;
+}
+
+.hero-copy h1,
+.section-heading h2 {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.hero-copy h1 {
+  max-width: 10ch;
+  font-size: clamp(3rem, 8vw, 6.4rem);
+  line-height: 0.94;
+}
+
+.section-heading h2 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.03;
+}
+
+.eyebrow,
+.panel-label,
+.filter-note,
+.meta-label,
+.process-step {
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}
+
+.lead,
+.section-copy,
+.profile-copy p,
+.contact-panel p,
+.process-card p,
+.spectrum-card p {
+  max-width: 66ch;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.hero-actions,
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-strong);
+  text-decoration: none;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: var(--text);
+  color: #f8f3ed;
+}
+
+.button-secondary {
+  background: transparent;
+}
+
+.hero-panel,
+.contact-panel {
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: calc(var(--radius-lg) - 0.5rem);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(248, 243, 237, 0.9));
+}
+
+.metric-list {
+  display: grid;
+  gap: 1.25rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.metric-value {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.metric-label {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.section-heading {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.spectrum-controls {
+  display: grid;
+  gap: 0.7rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.filter-chip {
+  min-height: 2.7rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.filter-chip[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.card-grid,
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.spectrum-card,
+.process-card {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-strong);
+}
+
+.spectrum-card {
+  grid-column: span 4;
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.spectrum-card.is-hidden {
+  display: none;
+}
+
+.card-topline,
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.9rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.meta-stack {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.meta-item {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.meta-item strong {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+.tool-grid .spectrum-card {
+  grid-column: span 3;
+}
+
+.process-card {
+  grid-column: span 4;
+}
+
+.process-step {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.process-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 1.5rem;
+}
+
+.profile-facts {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
+.profile-facts div {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-strong);
+}
+
+.profile-facts dt {
+  margin-bottom: 0.4rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.profile-facts dd {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.8rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+.contact-links a:hover,
+.contact-links a:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.contact-link-placeholder {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.8rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  opacity: 0.55;
+}
+
+@media (max-width: 980px) {
+  .hero,
+  .section-intro,
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .spectrum-card,
+  .tool-grid .spectrum-card,
+  .process-card {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    width: min(calc(100% - 1rem), var(--max-width));
+    padding-top: 0.5rem;
+  }
+
+  .site-header {
+    position: static;
+    border-radius: 1.5rem;
+  }
+
+  .section {
+    padding: 1.4rem;
+    border-radius: 1.8rem;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-copy h1 {
+    max-width: none;
+  }
+
+  .card-grid,
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .spectrum-card,
+  .tool-grid .spectrum-card,
+  .process-card {
+    grid-column: auto;
+  }
+}
